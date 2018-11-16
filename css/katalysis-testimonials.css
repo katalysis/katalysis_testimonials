@@ -1,0 +1,12 @@
+canvas {-moz-user-select: none; -webkit-user-select: none;-ms-user-select: none;}
+table.ccm-search-results-table thead th:last-child {padding-right:35px}
+table.ccm-search-results-table tbody td {font-size:15px;}
+table.ccm-search-results-table tbody td:last-child {padding-right:35px}
+
+
+.ccm-pane-header h3 span {
+	font-weight: normal;
+}
+.ccm-ui h3 {
+    margin-bottom: 15px;
+}

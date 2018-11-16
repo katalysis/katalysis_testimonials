@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btkatalysistestimonialblock">
+		<field name="bID" type="I"><KEY/><AUTOINCREMENT /><UNSIGNED /></field>
+		<field name="title" type="C" size="255" />
+        <field name="displayNumber" type="I" />
+		<field name="selection" type="X"/>
+        <field name="includeDate" type="I" />
+        <field name="includeAuthor" type="I" />
+        <field name="includeOrganisation" type="I" />
+        <field name="includeUrl" type="I" />
+        <field name="includeExtract" type="I" />
+        <field name="includeTestimonial" type="I" />
+        <field name="includeOptional" type="I" />
+        <field name="includeImage" type="I" />
+        <field name="featuredOnly" type="I" />
+		<field name="constrain" type="I"/>
+	    <field name="showAllLink" type="I"/>
+	    <field name="background" type="C" size="255" />
+	    <field name="panelBackground" type="C" size="255" />
+	    <field name="headingStyle" type="C" size="255" />
+	</table>
+</schema>

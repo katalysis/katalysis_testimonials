@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btkatalysisaddtestimonialblock">
+		<field name="bID" type="I"><KEY/><AUTOINCREMENT /><UNSIGNED /></field>
+		<field name="title" type="C" size="255" />
+ 	</table>
+</schema>

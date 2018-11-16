@@ -1,0 +1,13 @@
+/* Quotes */
+.kscope blockquote {display:block;margin: 1rem 0 40px;padding:10px;background:$kColWhite;border-color:$kColWhite;position:relative;}
+.kscope blockquote h3 {@include kFont1(400, italic);line-height:1.6;}
+.kscope blockquote p {@include kFont1(400, italic);font-size:16px;color:inherit;}
+.kscope blockquote p.ktestimonials-credit {margin: 10px 0 0;@include kFont2(600, normal);}
+.kscope blockquote p .ktestimonials-author {margin:0 10px 0 0;@include kFont2(700, normal);text-transform:uppercase;letter-spacing:0.05rem;}
+.kscope blockquote p .ktestimonials-organisation {margin:0 10px 0 0;}
+.kscope blockquote p .ktestimonials-date {margin:0 10px 0 0}
+
+.kscope blockquote .ktestimonials-image img {display:block;max-width:320px;margin:20px auto;}
+
+.kscope blockquote:after {content:' ';position:absolute;width:0;height:0;right:30px;bottom:-20px;border:15px solid transparent;border-top-color:inherit;border-left-color:inherit;}
+
