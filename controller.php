@@ -2,6 +2,7 @@
 namespace Concrete\Package\KatalysisTestimonials;
 use Package;
 use BlockType;
+use BlockTypeSet;
 use SinglePage;
 use Page;
 use View;
