@@ -1,11 +1,12 @@
 <?php       defined('C5_EXECUTE') or die(_("Access Denied.")); ?>
+
 <style>
-i.item-select-list-sort:hover{cursor:move}
+i.item-select-list-sort:hover{cursor:row-resize;}
 .ui-sortable-helper {display: table;}
-table.ccm-search-results-table tbody td {font-size:15px;}
 </style>
+
 <div class="ccm-dashboard-header-buttons">
-	<a href="<?php echo View::url('/dashboard/katalysis_testimonials/add_testimonial')?>" class="btn btn-primary"><?php  echo t("Add Testimonial")?></a>
+	<a href="<?php echo View::url('/dashboard/katalysis_testimonials/testimonial')?>" class="btn btn-primary"><?php echo t("Add Testimonial")?></a>
 </div>
 
 <form action="" method="get">
@@ -18,19 +19,22 @@ table.ccm-search-results-table tbody td {font-size:15px;}
 							<th style="width:30%"><span><?php echo t('Author')?></span></th>
 							<th style="width:50%"><span><?php echo t('Testimonial extract')?></span></th>
 							<th style="text-align:center;"><span><?php echo t('Featured')?></span></th>
+							<th><span><?php echo t('Status')?></span></th>
 							<th><span><?php echo t('')?></span></th>
 							<th><span><?php echo t('')?></span></td>
 							<th><span><?php echo t('')?></span></td>
 						</tr>
 					</thead>
 					<tbody>
-					<?php  foreach ($testimonialslist as $tl) : ?>
+					<?php  
+						
+						foreach ($testimonialslist as $tl) : ?>
 							<?php
 								$testimonial = $tl->testimonial;
 								if(strlen($testimonial) > 100) { $testimonial = substr($testimonial, 0, 100) . "...";}
 							?>
 				
-						<tr id ="akID_<?php echo($tl->sID)?>">
+						<tr id="sID_<?php echo($tl->sID)?>">
 							<td><?php echo $tl->author; ?></td>
 							<td><?php echo $tl->extract ?></td>
 							<td style="text-align:center;">
@@ -44,7 +48,14 @@ table.ccm-search-results-table tbody td {font-size:15px;}
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-primary btn-xs" href="<?php  echo $view->action('add_testimonial', 'edit', $tl->sID)?>"><?php    echo t('Edit'); ?></a>
+                                <?php if($tl->Active != 1){?>
+                                    <span class="label label-danger">Inactive</span>
+                                <?php } else {?>
+                                    <span class="label label-success">Active</span>
+                                <?php } ?>
+                            </td>
+							<td>
+								<a class="btn btn-primary btn-xs" href="<?php  echo $view->action('testimonial', 'edit', $tl->sID)?>"><?php    echo t('Edit'); ?></a>
 							</td>
 							<td>
 								<a class="btn btn-danger btn-xs" href="<?php  echo $view->action('delete_check', $tl->sID)?>" onclick="deleteTestimonial()"><?php    echo t('Delete'); ?></a>
@@ -58,23 +69,23 @@ table.ccm-search-results-table tbody td {font-size:15px;}
 			</div>
 		</div>
 	</div>
-	<?php  if ($paginator): ?>
-		<?php  echo $pagination; ?>
-	<?php endif; ?>
-</form>	
-<script type="text/javascript">
+	
+	<?php  if ($paginator){
+		echo $paginator->renderView('dashboard');
+	} ?>	
 
-$(document).ready(function(){
+</form>	
+
+<script type="text/javascript">
+	$(document).ready(function(){
 		$('tbody').sortable({
-			handle: 'i.item-select-list-sort',
-			 cursor: 'move',
+			handle: '.item-select-list-sort',
+			cursor: 'move',
             opacity: 0.5,
 			stop: function( event, ui ){
-         var ualist = $(this).sortable('serialize');
-                $.post('<?php      echo URL::to('/dashboard/katalysis_testimonials/katalysis_testimonials/sortorder')?>', ualist, function(r) {});
-
-    }
-})
-});
-
+				var ualist = $(this).sortable('serialize');
+                $.post('<?php echo URL::to('/dashboard/katalysis_testimonials/sortorder')?>', ualist, function(r) {});
+		    }
+		})
+	});
 </script>

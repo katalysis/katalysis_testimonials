@@ -14,12 +14,13 @@ class KatalysisTestimonials extends DashboardPageController {
 
 	public function on_start()
     {
-
+        parent::on_start();
+        $this->requireAsset('css', 'core/frontend/pagination');
 	    $html = Loader::helper('html');
         $this->addHeaderItem($html->css('katalysis-testimonials.css', 'katalysis_testimonials'));
 
 	}
-
+	
 /*------------------------------------------------------------------------------
     View
 ------------------------------------------------------------------------------*/
@@ -27,15 +28,16 @@ class KatalysisTestimonials extends DashboardPageController {
 	    public function view()
     {
         $testimonialList = new TestimonialPageList();       
-        $testimonialList->setItemsPerPage(25);
+        $testimonialList->setItemsPerPage(50);
         $paginator = $testimonialList->getPagination();
-        $pagination = $paginator->renderDefaultView();
         $this->set('testimonialslist',$paginator->getCurrentPageResults());  
-        $this->set('pagination',$pagination);
         $this->set('paginator', $paginator);    
-
  
     }
+    
+    
+   
+
 
 /*------------------------------------------------------------------------------
     Feature

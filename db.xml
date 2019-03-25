@@ -1,20 +1,27 @@
-<?xml version="1.0"?>
-<schema version="0.3">
+<schema
+  xmlns="http://www.concrete5.org/doctrine-xml/0.5"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.concrete5.org/doctrine-xml/0.5 http://concrete5.github.io/doctrine-xml/doctrine-xml-0.5.xsd">
+
 	<table name="KatalysisTestimonials">
-		<field name="sID" type="I"><KEY /><AUTOINCREMENT /><UNSIGNED /></field>
-		<field name="author" type="C" size="255"> </field>
-		<field name="date" type="C" size="255"> </field>
-		<field name="organisation" type="C" size="255"> </field>
-		<field name="url" type="C" size="255"> </field>
-		<field name="extract" type="X"> </field>
-		<field name="testimonial" type="X"> </field>
-		<field name="extra" type="X"> </field>
-		<field name="image" type="I" />
-        <field name="featured" type="I" />
-		<field name="sortOrder" type="I"></field>
-		 <index name="sID">
-            <col>sID</col>
-            <col>sortOrder</col>
-        </index>
+		<field name="sID" type="integer">
+			<autoincrement/>
+			<key/>
+		</field>
+		<field name="author" type="string" size="255"></field>
+		<field name="date" type="string" size="255"></field>
+		<field name="organisation" type="string" size="255"></field>
+		<field name="url" type="string" size="255"></field>
+		<field name="extract" type="text"></field>
+		<field name="testimonial" type="text"></field>
+		<field name="extra" type="text"></field>
+		<field name="image" type="integer"></field>
+        <field name="featured" type="integer"></field>
+		<field name="sortOrder" type="integer"></field>
+		<field name="CreatedDate" type="datetime"></field>
+		<field name="CreatedBy" type="integer" size="14"></field>
+		<field name="UpdatedDate" type="datetime"></field>
+		<field name="UpdatedBy" type="integer" size="14"></field>
+		<field name="Active" type="integer" size="1"></field>
+		<field name="Topics" type="text"></field>
 	</table>
 </schema>

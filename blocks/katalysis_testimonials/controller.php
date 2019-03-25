@@ -51,6 +51,9 @@ class Controller extends BlockController {
 
 	public function add(){
 				
+		$this->requireAsset('javascript', 'selectize');
+        $this->requireAsset('css', 'selectize');
+
 		// Defaults
 		$this->set('form',Loader::helper('form'));
         $this->set('title', '');
@@ -75,6 +78,9 @@ class Controller extends BlockController {
 
 	public function edit(){
 		
+		$this->requireAsset('javascript', 'selectize');
+        $this->requireAsset('css', 'selectize');
+
         $this->set('selection', unserialize($this->selection));
 		
 		// Get a list of testimonials

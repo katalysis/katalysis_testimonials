@@ -15,12 +15,19 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class Controller extends Package {
 
 	protected $pkgHandle = 'katalysis_testimonials';
-	protected $appVersionRequired = '5.7.4';
-	protected $pkgVersion = '1.0.5';
+	protected $appVersionRequired = '5.8.4';
+	protected $pkgVersion = '1.0.8';
 			
 	public function on_start()
 	{
-		Route::register('/katalysistestimonials/sortorder', '\Concrete\Package\KatalysisTestimonials\Controller\SinglePage\Dashboard\SortTestimonialOrder::SortOrder');
+		//Route::register('/katalysistestimonials/sortorder', '\Concrete\Package\KatalysisTestimonials\Controller\SinglePage\Dashboard\SortTestimonialOrder::SortOrder');
+		
+		
+        Route::register('/dashboard/katalysis_testimonials/sortorder', '\Concrete\Package\KatalysisTestimonials\Controller\SinglePage\Dashboard\KatalysisTestimonials\SortTestimonialOrder::SortOrder');
+
+
+		
+		
 	}
  	
 	public function getPackageName() 
@@ -49,9 +56,9 @@ class Controller extends Package {
 		$page1 = SinglePage::add('/dashboard/katalysis_testimonials', $pkg);
         $page1->update(array('cName'=>t("Katalysis Testimonials")));
 		
-		$page2 = SinglePage::add('/dashboard/katalysis_testimonials/add_testimonial', $pkg);
-        $page2->update(array('cName'=>t("Add Testimonial")));
-		
+		$page2 = SinglePage::add('/dashboard/katalysis_testimonials/testimonial', $pkg);
+        $page2->update(array('cName'=>t("Testimonial")));
+                       		
 		return $pkg;
 	}
 	

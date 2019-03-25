@@ -54,8 +54,8 @@ $kColours = array(
 			<?php echo $form->text('displayNumber', $displayNumber, array('class'=>'span1')); ?>
 			</div>
 		</div>
-		<div class="well">
-			<label>Selected testimonial(s)</label>
+		<div class="for-group">
+			<label class="control-label">Selected testimonial(s)</label>
 			<?php
 			if (sizeof($testimonialslist)>0 && is_array($testimonialslist)) {
                 $testimonialArray = array();
@@ -63,11 +63,18 @@ $kColours = array(
                     $testimonialArray[$testimonial->sID] = $testimonial->author;
 
                 }
-                echo $form->selectMultiple('selection', $testimonialArray, $selection, array('style' => 'width: 100%;'));
+                echo $form->selectMultiple('selection', $testimonialArray, $selection, array('style' => 'width: 100%;','class' => 'selection'));
             } ?>
-			
+            <script type="text/javascript">
+			$(function() {
+			    $('#selection').removeClass('form-control').selectize({
+			        plugins: ['remove_button']
+			    });
+			});
+			</script>
 			<p class="help-block" style="margin-bottom:0;">If no entries are selected all entries will display.</p>
 		</div>
+
 	</fieldset>
 </div>
 <div class="ccm-tab-content" id="ccm-tab-content-form-design">

@@ -1,5 +1,5 @@
 <?php         
-namespace Concrete\Package\KatalysisTestimonials\Controller\SinglePage\Dashboard;
+namespace Concrete\Package\KatalysisTestimonials\Controller\SinglePage\Dashboard\KatalysisTestimonials;
 
 use Controller;
 use Loader;
@@ -11,7 +11,7 @@ class SortTestimonialOrder extends Controller {
 	public function SortOrder()
    {
 	   
-	$uats = $_REQUEST['akID'];
+	$uats = $_REQUEST['sID'];
 	   
 	if (is_array($uats)) {
 		$uats = array_filter($uats, 'is_numeric');
@@ -26,3 +26,4 @@ class SortTestimonialOrder extends Controller {
 	}
 	}
 }
+
